@@ -1,0 +1,25 @@
+<!-- **********Throtlling concept********* -->
+
+<html>
+    <script>
+        const mythrottle = (fn,d)=>{
+            return function(...args){
+                document.getElementById("myid").disabled = true;
+                setTimeout(()=>{
+                    
+                    fn();
+                },d)
+            }
+        }
+
+
+
+      const newFun = mythrottle(()=>{
+        console.log("user Clicked !!")
+      },5000)
+    </script>
+    <body>
+        <input type="text" >
+        <button id="myid" onclick="newFun()">Hello</button>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+
+<!-- <*********Debouncing concept********> -->
+
+<html>
+    <script>
+        let counter = 0;
+        function getData(){
+            console.log("fetchind Data" + counter)
+            
+        }
+        function myDebounce(call,d){
+            let timer;
+            return function(...args){
+                if(timer) clearTimeout(timer);
+                timer = setTimeout(()=>{
+                    call();
+                },d);
+            }
+        }
+
+
+        const BetterFunction = myDebounce(getData,1000);
+    </script>
+    <body>
+        <input type="text" id="search" onchange="BetterFunction()"></input>
+    </body>
+</html>
